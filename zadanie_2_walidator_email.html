@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadanie 2 - Walidator adresów e-mail</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .result-box {
+        background-color: #f8f9fa;
+        border-left: 4px solid #198754;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 5px;
+      }
+      .result-item {
+        margin: 8px 0;
+        font-size: 1.1em;
+      }
+      .result-label {
+        font-weight: bold;
+        color: #495057;
+      }
+      .valid {
+        color: #198754;
+      }
+      .invalid {
+        color: #dc3545;
+      }
+      .email-parts {
+        background-color: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow">
+            <div class="card-header bg-success text-white">
+              <h2 class="mb-0">Zadanie 2: Walidator adresów e-mail</h2>
+            </div>
+            <div class="card-body">
+              <p class="text-muted">
+                <strong>Cel:</strong> Stwórz walidator adresów e-mail używając
+                metod obiektu String do manipulacji tekstem.
+              </p>
+
+              <div class="mb-4">
+                <label for="email" class="form-label"
+                  >Wprowadź adres e-mail:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  placeholder="np. jan.kowalski@example.pl"
+                />
+              </div>
+
+              <button class="btn btn-success" id="validateBtn">Waliduj</button>
+              <button class="btn btn-secondary" id="clearBtn">Wyczyść</button>
+
+              <div id="results" class="result-box" style="display: none">
+                <h5 class="mb-3">Wyniki walidacji:</h5>
+
+                <div class="result-item">
+                  <span class="result-label"
+                    >Tekst po usunięciu białych znaków:</span
+                  >
+                  <span id="trimmed"></span>
+                </div>
+
+                <div class="result-item">
+                  <span class="result-label">Zawiera znak @:</span>
+                  <span id="hasAt" class="valid"></span>
+                </div>
+
+                <div class="result-item">
+                  <span class="result-label">Zaczyna się od litery:</span>
+                  <span id="startsLetter"></span>
+                </div>
+
+                <div class="result-item">
+                  <span class="result-label">Kończy się na .pl lub .com:</span>
+                  <span id="endsDomain"></span>
+                </div>
+
+                <div class="email-parts">
+                  <div class="result-item">
+                    <span class="result-label">Część przed @:</span>
+                    <span id="localPart"></span>
+                  </div>
+                  <div class="result-item">
+                    <span class="result-label">Część po @ (domena):</span>
+                    <span id="domainPart"></span>
+                  </div>
+                  <div class="result-item">
+                    <span class="result-label"
+                      >Domena z zamienionymi kropkami:</span
+                    >
+                    <span id="domainReplaced"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="zadanie_2.js" defer></script>
+  </body>
+</html>
